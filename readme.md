@@ -5,3 +5,7 @@
 - Backend : node.js
 
 - Frontend: pug, Vanilla Javascript
+
+## deploy URL
+
+https://whispering-meadow-84241.herokuapp.com
