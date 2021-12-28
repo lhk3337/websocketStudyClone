@@ -32,7 +32,7 @@ wss.on("connection", (socket) => {
   socket.on("close", () => console.log("Disconnected from the Browser ❌")); // 브라우저와 통신이 끊어질 경우
   socket.on("message", (msg) => {
     // socket.send(msg); // 브라우저가 서버에 메시지를 보내고 다시 서버가 브라우저로 메시지를 다시 보낸 경우
-    const message = JSON.parse(msg);
+    const message = JSON.parse(msg); // String을 JS 객체로 변환
 
     // if (message.type === "new_message") {
     //   sockets.map((aSocket) => aSocket.send(message.payload));

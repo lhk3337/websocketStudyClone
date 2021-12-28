@@ -7,7 +7,7 @@ const Serversocket = new WebSocket(`wss://${window.location.host}`); // 웹소�
 
 function makeMessage(type, payload) {
   const msg = { type, payload };
-  return JSON.stringify(msg);
+  return JSON.stringify(msg); // JS 객체를 string으로 변환, 변환하는 이유는 다른 언어에서 JS 객체를 알지 못하기 때문에 string으로 변환
 }
 
 Serversocket.addEventListener("open", () => {
