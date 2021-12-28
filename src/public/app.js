@@ -2,8 +2,16 @@
 const messageList = document.querySelector("ul");
 const nicknameForm = document.querySelector("#nickname");
 const messageForm = document.querySelector("#message");
+let Serversocket;
+switch (window.location.protocol) {
+  case "http:":
+    Serversocket = new WebSocket(`ws://${window.location.host}`);
+    break;
+  case "https:":
+    Serversocket = new WebSocket(`wss://${window.location.host}`);
+}
 
-const Serversocket = new WebSocket(`wss://${window.location.host}`); // 웹소켓 커넥션 만들기
+// const Serversocket = new WebSocket(`wss://${window.location.host}`); // 웹소켓 커넥션 만들기
 
 function makeMessage(type, payload) {
   const msg = { type, payload };
