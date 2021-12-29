@@ -21,7 +21,8 @@ app.get("/", (_, res) => res.render("home"));
 app.get("/*", (_, res) => res.redirect("/"));
 
 const httpServer = http.createServer(app);
-const wsServer = new Server(httpServer);
+
+const wsServer = new Server(httpServer); //socketIO 연결
 
 wsServer.on("connection", (socket) => {
   console.log(socket);
