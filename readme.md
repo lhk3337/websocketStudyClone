@@ -55,6 +55,24 @@ wsServer.on("connection", (socket) => {
 });
 ```
 
-- done() 함수는 backend에서 함수를 호출하지만, 함수는 front-end에서 실행 됨
+백엔드에서 function애 argument를 보낼 수 있음
+
+```js
+// Client
+socket.emit("enter_room", input.value, (msg) => {
+  // backend의 함수의 argument를 매개변수로 받아 출력
+  console.log(msg); // hello from the backend 출력
+});
+
+// Server
+socket.on("enter_room", (roomName, done) => {
+  console.log(roomName);
+  setTimeout(() => {
+    done("hello from the backend"); // argument
+  });
+});
+```
+
+- done() 함수는 backend에서 보안 문제가 발생할 수 있기 때문에 함수를 실행하지 않고 함수를 호출만 하고, 함수는 front-end에서 실행 됨
 
 ### socketIO 서버가 끊기더라도 클라이언트에서 서버가 연결 할때까지 재연결 시도 함
