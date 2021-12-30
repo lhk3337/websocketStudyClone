@@ -29,14 +29,15 @@ wsServer.on("connection", (socket) => {
     console.log(`socket Event: ${event}`);
   });
   socket.on("enter_room", (roomName, done) => {
+    socket.join(roomName);
+    done();
+    socket.to(roomName).emit("welcome");
     // console.log(socket.rooms);
     // socket.join(roomName);
     // console.log(socket.rooms);
     // setTimeout(() => {
     //   done("hello from the backend");
     // }, 5000);
-    socket.join(roomName);
-    done();
   });
 });
 
