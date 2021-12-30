@@ -19,7 +19,7 @@
 
 <br />
 
-### Client : socket.emit()
+#### Client : socket.emit()
 
 - socket.emit 첫번째 argument : 이벤트 이름
 - socket.emit 두번째 argument부터 서버로 보내고 싶은 payload(아무 타입 가능)
@@ -37,7 +37,7 @@ socket.emit("event", { Object }, () => {
 });
 ```
 
-### Server
+#### Server
 
 ```js
 const httpServer = http.createServer(app);
@@ -75,4 +75,6 @@ socket.on("enter_room", (roomName, done) => {
 
 - done() 함수는 backend에서 보안 문제가 발생할 수 있기 때문에 함수를 실행하지 않고 함수를 호출만 하고, 함수는 front-end에서 실행 됨
 
-### socketIO 서버가 끊기더라도 클라이언트에서 서버가 연결 할때까지 재연결 시도 함
+#### socketIO 서버가 끊기더라도 클라이언트에서 서버가 연결 할때까지 재연결 시도 함
+
+### rooms
