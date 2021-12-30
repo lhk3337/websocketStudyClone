@@ -78,3 +78,23 @@ socket.on("enter_room", (roomName, done) => {
 #### socketIO 서버가 끊기더라도 클라이언트에서 서버가 연결 할때까지 재연결 시도 함
 
 ### rooms
+
+#### socket.join - socket에 주어진 방을 추가
+
+```js
+socket.on("enter_room", (roomName, done) => {
+  console.log(socket.rooms); // Set(1) { 'VJYYAbdN3bN2wUZqAAAD' } -> <socket.id>
+  socket.join(roomName); // Clinet의 socket.emit 두번째 매개변수
+  console.log(socket.rooms); // Set(2) { 'VJYYAbdN3bN2wUZqAAAD','roomName' }
+});
+```
+
+#### socket.onAny() - socket에 있는 모든 event를 확인
+
+```js
+wsServer.on("connection", (socket) => {
+  socket.onAny((event) => {
+    console.log(`socket Event: ${event}`); // socket Event: enter_room
+  });
+});
+```
