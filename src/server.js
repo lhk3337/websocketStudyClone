@@ -1,4 +1,4 @@
-import http from "http";
+import { createServer } from "http";
 
 import { Server, Socket } from "socket.io";
 
@@ -20,17 +20,23 @@ app.use("/public", express.static(__dirname + "/public"));
 app.get("/", (_, res) => res.render("home"));
 app.get("/*", (_, res) => res.redirect("/"));
 
-const httpServer = http.createServer(app);
+const httpServer = createServer(app);
 
 const wsServer = new Server(httpServer); //socketIO 연결
 
 wsServer.on("connection", (socket) => {
-  console.log(socket);
+  socket.onAny((event) => {
+    console.log(`socket Event: ${event}`);
+  });
   socket.on("enter_room", (roomName, done) => {
-    console.log(roomName);
-    setTimeout(() => {
-      done("hello from the backend");
-    }, 5000);
+    // console.log(socket.rooms);
+    // socket.join(roomName);
+    // console.log(socket.rooms);
+    // setTimeout(() => {
+    //   done("hello from the backend");
+    // }, 5000);
+    socket.join(roomName);
+    done();
   });
 });
 
