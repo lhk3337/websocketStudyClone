@@ -98,3 +98,19 @@ wsServer.on("connection", (socket) => {
   });
 });
 ```
+
+### rooms message
+
+```js
+//Backend
+socket.on("enter_room", (roomName, done) => {
+  socket.join(roomName);
+  done();
+  socket.to(roomName).emit("welcome"); // roomName이라는 방에 나를 뺀 나머지에게 welcome이라는 이벤트를 발생
+});
+```
+
+```js
+//Frontend
+socket.on("welcome", () => {}); // 서버에서 이벤트를 발생하면 프론트에서 이 함수가 실행됨
+```
