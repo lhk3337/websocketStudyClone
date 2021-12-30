@@ -114,3 +114,21 @@ socket.on("enter_room", (roomName, done) => {
 //Frontend
 socket.on("welcome", () => {}); // 서버에서 이벤트를 발생하면 프론트에서 이 함수가 실행됨
 ```
+
+### Room Notifications
+
+disconnecting - 클라이언트의 연결이 끊어질 때 이벤트 발생 발생
+
+```js
+// Server
+socket.on("disconnecting", () => {
+  socket.rooms.forEach((room) => socket.to(room).emit("bye"));
+});
+```
+
+```js
+// Client;
+socket.on("bye", () => {
+  addMessage("someone left!!");
+});
+```
