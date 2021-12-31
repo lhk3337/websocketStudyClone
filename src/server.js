@@ -6,7 +6,7 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import { count } from "console";
+
 dotenv.config();
 
 const app = express();
