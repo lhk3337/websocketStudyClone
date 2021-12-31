@@ -20,6 +20,13 @@ app.get("/*", (_, res) => res.redirect("/"));
 
 // Put all your backend code here.
 
-server.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
+const httpServer = createServer(app);
+
+const wsServer = new Server(httpServer); //socketIO 연결
+
+wsServer.on("connection", (socket) => {
+  console.log(socket);
 });
+
+const handleListen = () => console.log(`Listening on http://localhost:3000`);
+httpServer.listen(process.env.PORT, handleListen);
