@@ -10,7 +10,7 @@ import { count } from "console";
 dotenv.config();
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 app.set("view engine", "pug");
 
 const __filename = fileURLToPath(import.meta.url);
@@ -79,5 +79,6 @@ wsServer.on("connection", (socket) => {
   socket.on("nickname", (nickname) => (socket["nickname"] = nickname));
 });
 
-const handleListen = () => console.log(`Listening on http://localhost:3000`);
-httpServer.listen(3000, handleListen);
+httpServer.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`);
+});
