@@ -8,6 +8,10 @@
 
 <br />
 
+## Deploy URL
+
+https://holim-socketio.herokuapp.com/
+
 ## socketIO
 
 - socketIO는 websocket의 부가 기능이 아님
