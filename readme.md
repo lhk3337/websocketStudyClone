@@ -8,4 +8,4 @@
 
 ## deploy URL
 
-https://whispering-meadow-84241.herokuapp.com
+https://holim-chatwebsocket.herokuapp.com/
