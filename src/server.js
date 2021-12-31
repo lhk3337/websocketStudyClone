@@ -1,5 +1,6 @@
-import http from "http";
-import WebSocket from "ws";
+import { Server, Socket } from "socket.io";
+import { createServer } from "http";
+
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -29,4 +30,4 @@ wsServer.on("connection", (socket) => {
 });
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
-httpServer.listen(process.env.PORT, handleListen);
+httpServer.listen(port, handleListen);
