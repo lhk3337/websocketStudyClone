@@ -10,7 +10,7 @@
 
 https://whispering-meadow-84241.herokuapp.com
 
-## webRTC
+## web video, audio method
 
 ```js
 let myStream;
@@ -42,3 +42,9 @@ getAudioTracks
 getVideoTracks
 
 - 스트림의 비디오 트랙을 나타내는 객체 MediaStream 시퀀스, 배열 구조
+
+## webRTC
+
+- peer-to-peer communication, 사용자 브라우저 간 통신이 가능
+- My info(ip주소, port 넘버) <-----> Server <-----> yourInfo(ip주소, port 넘버) 위치 관련 정보만 전송
+- 영상과 오디오처리는 나와 상대방 브라우저끼리만 직접 전달
