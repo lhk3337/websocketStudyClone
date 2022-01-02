@@ -26,7 +26,14 @@ const httpServer = createServer(app);
 const wsServer = new Server(httpServer); //socketIO 연결
 
 wsServer.on("connection", (socket) => {
-  console.log(socket);
+  socket.on("join_room", (roomName, done) => {
+    socket.join(roomName);
+    done();
+    socket.to(roomName).emit("welcome");
+  });
+  socket.on("offer", (offer, roomName) => {
+    socket.to(roomName).emit("offer", offer);
+  });
 });
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
