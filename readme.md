@@ -48,3 +48,9 @@ getVideoTracks
 - peer-to-peer communication, 사용자 브라우저 간 통신이 가능
 - My info(ip주소, port 넘버) <-----> Server <-----> yourInfo(ip주소, port 넘버) 위치 관련 정보만 전송
 - 영상과 오디오처리는 나와 상대방 브라우저끼리만 직접 전달
+
+<br />
+
+### webRTC signaling map
+
+![1_hQHzaT-JB1Wx3y0qtQX8Kw](https://user-images.githubusercontent.com/44824320/147873478-beac6d46-aff1-4382-8146-913bcaca8863.png)
